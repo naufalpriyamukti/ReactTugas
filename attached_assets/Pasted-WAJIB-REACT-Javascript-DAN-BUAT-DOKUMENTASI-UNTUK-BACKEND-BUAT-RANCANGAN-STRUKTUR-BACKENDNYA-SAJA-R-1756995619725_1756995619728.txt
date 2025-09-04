@@ -1,0 +1,100 @@
+WAJIB REACT Javascript DAN BUAT DOKUMENTASI UNTUK BACKEND, BUAT RANCANGAN STRUKTUR BACKENDNYA SAJA RANCANGANNYA JANGAN ISINYA
+
+wajib react javascript
+
+Spesifikasi
+
+Frontend (Sisi Klien)
+○ Framework: Sangat direkomendasikan untuk membangun frontend menggunakan
+React.
+○ Manajemen State: Gunakan hooks React (seperti useState, useEffect,
+useContext) untuk mengelola state aplikasi.
+○ Routing: Implementasikan navigasi antar halaman menggunakan React Router.
+○ Komunikasi API: Lakukan pemanggilan ke backend API (fetch/GET, POST, PUT,
+DELETE).
+○ Styling: Berikan gaya dan tata letak yang bersih, responsif, dan presentabel. Anda
+bisa menggunakan CSS biasa atau framework UI seperti Tailwind CSS.
+
+
+ATUR STRUKTUR FOLDERNYA React CSS DAN JAVASCRIPT YANG RAPI, LALU BUATKAN KONEKSI KE DATABASE UNTUK TEST WEB JUGA PAKAI MYSQL GUNAKAN ENV
+
+Buatkan web top up game dengan alur
+
+register berisi:
+username
+email
+password
+pilihan role
+
+login
+username atau email
+password
+
+jika belum punya akun silahkan buat akun, jika punya akun silahkan login
+
+Halaman user
+
+user yang belum login bisa melihat web tapi Ketika ingin checkout harus login terlebih dahulu
+
+Desain antarmuka (UI/UX) untuk proyek ini harus:
+- Sederhana light mode dan intuitif: Fokus pada kemudahan penggunaan, minim distraksi, dan navigasi yang jelas.
+- Responsif: Tampilan harus optimal di berbagai perangkat (mobile, tablet, desktop).
+- Konsisten: Gunakan warna, font, dan komponen yang seragam di seluruh halaman.
+
+1. navbar(nama toko game dan logo, search, profile dropdown(berisi profile bisa edit, Riwayat transaksi, logout)
+2. carouserel
+3. produk card ada button beli Ketika diklik akan mengarahkan ke halaman detail produk berisi item produk, form input id/username game, item yang dipilih, button checkout Ketika diklik akan diarahkan ke halaman pembayaran berisi 1 card berisi(status transaksi, detail transaksi,detail pembayaran button bayar Ketika diklik akan diarahkan ke midtrans sandbox snap nanti diatur backend developer nanti
+4.footer sederhana
+5. Riwayat transaksi setelah melakukan pembayaran atau belum akan masuk ke Riwayat transaksi nanti backend yang atur
+
+Halaman admin
+
+Desain antarmuka (UI/UX) untuk proyek ini harus:
+- Sederhana light mode dan intuitif: Fokus pada kemudahan penggunaan, minim distraksi, dan navigasi sidebar yang jelas.
+- Responsif: Tampilan harus optimal di berbagai perangkat (mobile, tablet, desktop).
+- Konsisten: Gunakan warna light mode, font, dan komponen yang seragam di seluruh halaman.
+- Bisa memakai template dari tabler atau template panel admin
+
+
+1. sidebar kiri berisi(Produk, Item, Order, Report, Logout)
+
+2. Halaman produk akan crud produk beserta gambarnya yang akan tertampil di user sebagai cards, buat table seperti item samakan ui item dan cards
+3. Halaman item dari produk Ketika klik beli item itu yang akan ditambahkan crud berdasarkan produk yang ada dan bisa crud gambar 
+
+* UI produk item samakan saja
+4. Halaman order untuk mengatur status pesanan user
+5. Halaman reports untuk laporan keuangan dengan fitur cetak pdf
+
+rancangan struktur folder bisa tambahkan untuk melengkapi folder agar rapi dan terstruktur, tambahkan sql untuk menjalankan frontend ini lalu cara menjalankan project react ini untuk mengetest halamannya, buat dengan struktur react jika kurang lengkap rancangan ini
+web/
+│
+├── pages/
+│   ├── auth/                        # Halaman untuk login & register
+│   │    ├── login.jsx
+│   │    └── register.jsx
+│   │
+│   ├── user/                        # Halaman untuk user/client
+│   │    ├── index.jsx               # Halaman utama user (produk, carousel)
+│   │    ├── product-detail.jsx      # Detail product & input username game
+│   │    ├── payment.jsx             # Pembayaran setelah klik checkout
+│   │    ├── transactions.jsx        # Riwayat transaksi
+│   │    └── profile.jsx             # Profil user (update informasi)
+│   │
+│   └── admin/                       # Halaman untuk admin panel
+│        ├── dashboard.jsx           # Dashboard ringkasan
+│        ├── products.jsx            # CRUD Produk
+│        ├── items.jsx               # CRUD Item Produk
+│        ├── orders.jsx              # Kelola pesanan
+│        └── reports.jsx            # Laporan keuangan
+│
+├── css/
+│   ├── global.css                   # Styling umum (navbar, footer, reset)
+│   ├── auth.css                     # Styling login & register
+│   ├── user.css                     # Styling untuk semua halaman user
+│   ├── admin.css                    # Styling untuk layout admin
+│   └── responsive.css               # Styling responsif (mobile/tablet)
+
+!!! INI RANCANGAN HALAMAN FRONTEND BELUM TERLALU LENGKAP LENGKAPI NANTI, BUAT RANCANGAN STRUKTUR FOLDER BACKENDNYA UNTUK DIISI KEMUDIAN HARI 
+
+
+

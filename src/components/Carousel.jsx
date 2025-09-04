@@ -1,0 +1,88 @@
+import React, { useState, useEffect } from 'react';
+
+const Carousel = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const slides = [
+    {
+      id: 1,
+      title: 'Top-up Game Favorit Anda',
+      subtitle: 'Proses cepat, aman, dan terpercaya',
+      image: '/images/banner-1.jpg',
+      cta: 'Mulai Sekarang'
+    },
+    {
+      id: 2,
+      title: 'Promo Spesial Bulan Ini',
+      subtitle: 'Dapatkan bonus diamond hingga 20%',
+      image: '/images/banner-2.jpg',
+      cta: 'Lihat Promo'
+    },
+    {
+      id: 3,
+      title: 'Pembayaran Mudah',
+      subtitle: 'Berbagai metode pembayaran tersedia',
+      image: '/images/banner-3.jpg',
+      cta: 'Pelajari Lebih'
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  return (
+    <div className="carousel">
+      <div className="carousel-container">
+        {slides.map((slide, index) => (
+          <div
+            key={slide.id}
+            className={`carousel-slide ${index === currentSlide ? 'active' : ''}`}
+            style={{ backgroundImage: `url(${slide.image})` }}
+          >
+            <div className="carousel-content">
+              <h2>{slide.title}</h2>
+              <p>{slide.subtitle}</p>
+              <button className="carousel-cta">{slide.cta}</button>
+            </div>
+          </div>
+        ))}
+        
+        <button className="carousel-nav prev" onClick={prevSlide}>
+          &#8249;
+        </button>
+        <button className="carousel-nav next" onClick={nextSlide}>
+          &#8250;
+        </button>
+        
+        <div className="carousel-indicators">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              className={`indicator ${index === currentSlide ? 'active' : ''}`}
+              onClick={() => goToSlide(index)}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Carousel;
