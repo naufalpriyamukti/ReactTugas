@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ChevronLeftIcon, ChevronRightIcon } from './Icons';
 
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -8,21 +9,21 @@ const Carousel = () => {
       id: 1,
       title: 'Top-up Game Favorit Anda',
       subtitle: 'Proses cepat, aman, dan terpercaya',
-      image: '/images/banner-1.jpg',
+      image: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
       cta: 'Mulai Sekarang'
     },
     {
       id: 2,
       title: 'Promo Spesial Bulan Ini',
       subtitle: 'Dapatkan bonus diamond hingga 20%',
-      image: '/images/banner-2.jpg',
+      image: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
       cta: 'Lihat Promo'
     },
     {
       id: 3,
       title: 'Pembayaran Mudah',
       subtitle: 'Berbagai metode pembayaran tersedia',
-      image: '/images/banner-3.jpg',
+      image: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
       cta: 'Pelajari Lebih'
     }
   ];
@@ -54,7 +55,7 @@ const Carousel = () => {
           <div
             key={slide.id}
             className={`carousel-slide ${index === currentSlide ? 'active' : ''}`}
-            style={{ backgroundImage: `url(${slide.image})` }}
+            style={{ background: slide.image }}
           >
             <div className="carousel-content">
               <h2>{slide.title}</h2>
@@ -65,10 +66,10 @@ const Carousel = () => {
         ))}
         
         <button className="carousel-nav prev" onClick={prevSlide}>
-          &#8249;
+          <ChevronLeftIcon size={24} />
         </button>
         <button className="carousel-nav next" onClick={nextSlide}>
-          &#8250;
+          <ChevronRightIcon size={24} />
         </button>
         
         <div className="carousel-indicators">

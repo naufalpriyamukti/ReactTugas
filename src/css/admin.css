@@ -8,31 +8,50 @@
 
 /* Admin Sidebar */
 .admin-sidebar {
-  width: 260px;
-  background: #2c3e50;
+  width: 280px;
+  background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
   color: white;
   position: fixed;
   height: 100vh;
   overflow-y: auto;
   z-index: 1000;
+  box-shadow: 4px 0 20px rgba(0,0,0,0.1);
 }
 
 .sidebar-header {
-  padding: 20px;
-  border-bottom: 1px solid #34495e;
+  padding: 30px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .sidebar-logo {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 12px;
   color: white;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.sidebar-logo:hover {
+  transform: translateY(-2px);
+}
+
+.sidebar-logo-icon {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.logo-text {
+  font-weight: 700;
 }
 
 .sidebar-nav {
-  padding: 20px 0;
+  padding: 30px 0;
 }
 
 .sidebar-nav ul {
@@ -43,29 +62,62 @@
   display: flex;
   align-items: center;
   padding: 16px 24px;
-  color: #bdc3c7;
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   transition: all 0.3s ease;
   border-left: 4px solid transparent;
+  margin: 4px 0;
+  position: relative;
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
 }
 
 .nav-item:hover {
-  background-color: #34495e;
+  background: rgba(255, 255, 255, 0.1);
   color: white;
-  border-left-color: #3498db;
+  transform: translateX(8px);
+}
+
+.nav-item:hover::before {
+  transform: scaleY(1);
 }
 
 .nav-item.active {
-  background-color: #34495e;
+  background: rgba(255, 255, 255, 0.15);
   color: white;
-  border-left-color: #3498db;
+  transform: translateX(8px);
+}
+
+.nav-item.active::before {
+  transform: scaleY(1);
 }
 
 .nav-icon {
-  margin-right: 12px;
-  font-size: 18px;
-  width: 20px;
-  text-align: center;
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-item:hover .nav-icon,
+.nav-item.active .nav-icon {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
 }
 
 .nav-label {
@@ -78,55 +130,77 @@
   bottom: 0;
   left: 0;
   right: 0;
-  border-top: 1px solid #34495e;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .logout-btn {
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 16px 24px;
+  padding: 20px 24px;
   background: none;
   border: none;
   color: #e74c3c;
   text-decoration: none;
   transition: all 0.3s ease;
   cursor: pointer;
+  gap: 16px;
 }
 
 .logout-btn:hover {
-  background-color: #c0392b;
-  color: white;
+  background: rgba(231, 76, 60, 0.1);
+  transform: translateX(8px);
+}
+
+.logout-btn .nav-icon {
+  background: rgba(231, 76, 60, 0.2);
+}
+
+.logout-btn:hover .nav-icon {
+  background: rgba(231, 76, 60, 0.3);
+  transform: scale(1.1);
 }
 
 /* Admin Main Content */
 .admin-main {
   flex: 1;
-  margin-left: 260px;
+  margin-left: 280px;
   padding: 0;
-  background-color: #f8f9fa;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
 }
 
 .admin-header {
   background: white;
-  padding: 20px 30px;
+  padding: 25px 40px;
   border-bottom: 1px solid #e0e6ed;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
 }
 
 .admin-header h1 {
   color: #2c3e50;
-  font-size: 28px;
-  font-weight: 600;
+  font-size: 32px;
+  font-weight: 700;
   margin: 0;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .admin-user {
   color: #7f8c8d;
   font-size: 14px;
+  background: rgba(116, 75, 162, 0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 500;
 }
 
 /* Dashboard Stats */

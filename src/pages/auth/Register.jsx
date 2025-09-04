@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
+import { UserIcon, LockIcon, EmailIcon, GameIcon, SettingsIcon } from '../../components/Icons';
 import '../../css/auth.css';
 
 const Register = () => {
@@ -30,6 +31,11 @@ const Register = () => {
 
     if (formData.password !== formData.confirmPassword) {
       setError('Password tidak cocok');
+      return;
+    }
+
+    if (formData.password.length < 6) {
+      setError('Password minimal 6 karakter');
       return;
     }
 
@@ -63,80 +69,138 @@ const Register = () => {
 
   return (
     <div className="auth-container">
-      <div className="auth-card">
-        <h2>Register</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              required
-            />
+      <div className="auth-card register-card">
+        <div className="auth-header">
+          <div className="auth-logo">
+            <GameIcon size={40} />
           </div>
+          <h2>Buat Akun Baru</h2>
+          <p>Bergabung dengan GameStore sekarang</p>
+        </div>
 
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
+        <form onSubmit={handleSubmit} className="auth-form">
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="username">Username</label>
+              <div className="input-wrapper">
+                <div className="input-icon">
+                  <UserIcon size={20} />
+                </div>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  placeholder="Pilih username unik"
+                  value={formData.username}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <div className="input-wrapper">
+                <div className="input-icon">
+                  <EmailIcon size={20} />
+                </div>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="email@example.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
           </div>
           
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <div className="input-wrapper">
+                <div className="input-icon">
+                  <LockIcon size={20} />
+                </div>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Minimal 6 karakter"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="confirmPassword">Konfirmasi Password</label>
+              <div className="input-wrapper">
+                <div className="input-icon">
+                  <LockIcon size={20} />
+                </div>
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  placeholder="Ulangi password"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
           </div>
 
           <div className="form-group">
-            <label htmlFor="confirmPassword">Konfirmasi Password</label>
-            <input
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              required
-            />
+            <label htmlFor="role">Tipe Akun</label>
+            <div className="input-wrapper">
+              <div className="input-icon">
+                <SettingsIcon size={20} />
+              </div>
+              <select
+                id="role"
+                name="role"
+                value={formData.role}
+                onChange={handleChange}
+              >
+                <option value="user">User - Pembeli</option>
+                <option value="admin">Admin - Pengelola</option>
+              </select>
+            </div>
           </div>
 
-          <div className="form-group">
-            <label htmlFor="role">Role</label>
-            <select
-              id="role"
-              name="role"
-              value={formData.role}
-              onChange={handleChange}
-            >
-              <option value="user">User</option>
-              <option value="admin">Admin</option>
-            </select>
-          </div>
-
-          {error && <div className="error-message">{error}</div>}
+          {error && (
+            <div className="error-message">
+              <span className="error-icon">⚠️</span>
+              {error}
+            </div>
+          )}
 
           <button type="submit" disabled={loading} className="auth-button">
-            {loading ? 'Loading...' : 'Register'}
+            {loading ? (
+              <>
+                <div className="spinner"></div>
+                Memproses...
+              </>
+            ) : (
+              'Daftar Sekarang'
+            )}
           </button>
         </form>
 
-        <p className="auth-link">
-          Sudah punya akun? <Link to="/login">Login</Link>
-        </p>
+        <div className="auth-divider">
+          <span>atau</span>
+        </div>
+
+        <div className="auth-footer">
+          <p className="auth-link">
+            Sudah punya akun? <Link to="/login" className="link-primary">Masuk sekarang</Link>
+          </p>
+        </div>
       </div>
     </div>
   );
