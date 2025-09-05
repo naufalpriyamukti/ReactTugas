@@ -17,39 +17,6 @@ const AdminReports = () => {
     endDate: ''
   });
 
-  useEffect(() => {
-    if (!isLoggedIn() || !isAdmin()) {
-      navigate('/');
-      return;
-    }
-    
-    // TODO: Replace with actual API call
-    // fetchReportData();
-    
-    // Mock report data
-    const mockReportData = {
-      dailySales: [
-        { date: '2024-01-15', revenue: 500000, orders: 25 },
-        { date: '2024-01-14', revenue: 750000, orders: 30 },
-        { date: '2024-01-13', revenue: 600000, orders: 28 },
-        { date: '2024-01-12', revenue: 800000, orders: 35 },
-        { date: '2024-01-11', revenue: 450000, orders: 22 }
-      ],
-      monthlySales: [
-        { month: 'Januari 2024', revenue: 15600000, orders: 780 },
-        { month: 'Desember 2023', revenue: 18200000, orders: 910 },
-        { month: 'November 2023', revenue: 16800000, orders: 840 }
-      ],
-      topProducts: [
-        { name: 'Mobile Legends', sales: 350, revenue: 7500000 },
-        { name: 'Free Fire', sales: 280, revenue: 4200000 },
-        { name: 'PUBG Mobile', sales: 150, revenue: 1800000 }
-      ],
-      totalRevenue: 15600000
-    };
-    
-    setReportData(mockReportData);
-  }, [isLoggedIn, isAdmin, navigate]);
 
   const handlePrintPDF = () => {
     // TODO: Implement PDF generation
