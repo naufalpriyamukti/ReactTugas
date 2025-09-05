@@ -8,52 +8,6 @@ const Transactions = () => {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (!isLoggedIn()) {
-      return;
-    }
-    
-    // TODO: Replace with actual API call
-    // fetchUserTransactions(user.id);
-    
-    // Mock transaction data
-    const mockTransactions = [
-      {
-        id: 1,
-        product: 'Mobile Legends',
-        item: '86 Diamond',
-        gameUsername: 'player123',
-        amount: 21000,
-        status: 'completed',
-        date: '2024-01-15',
-        orderId: 'ML001'
-      },
-      {
-        id: 2,
-        product: 'Free Fire',
-        item: '100 Diamond',
-        gameUsername: 'ffplayer456',
-        amount: 15000,
-        status: 'pending',
-        date: '2024-01-14',
-        orderId: 'FF002'
-      },
-      {
-        id: 3,
-        product: 'PUBG Mobile',
-        item: '60 UC',
-        gameUsername: 'pubgpro789',
-        amount: 12000,
-        status: 'failed',
-        date: '2024-01-13',
-        orderId: 'PB003'
-      }
-    ];
-    
-    setTransactions(mockTransactions);
-    setLoading(false);
-  }, [user, isLoggedIn]);
-
   const getStatusBadge = (status) => {
     const statusMap = {
       completed: { text: 'Selesai', class: 'success' },

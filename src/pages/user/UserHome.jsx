@@ -9,50 +9,6 @@ const UserHome = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // TODO: Replace with actual API call
-    // fetchProducts();
-    
-    // Mock data for testing
-    const mockProducts = [
-      {
-        id: 1,
-        name: 'Mobile Legends',
-        description: 'Top-up Diamond Mobile Legends Bang Bang',
-        image: '/images/mobile-legends.jpg',
-        category: 'MOBA',
-        popular: true
-      },
-      {
-        id: 2,
-        name: 'Free Fire',
-        description: 'Top-up Diamond Free Fire',
-        image: '/images/free-fire.jpg',
-        category: 'Battle Royale',
-        popular: true
-      },
-      {
-        id: 3,
-        name: 'PUBG Mobile',
-        description: 'Top-up UC PUBG Mobile',
-        image: '/images/pubg.jpg',
-        category: 'Battle Royale',
-        popular: false
-      },
-      {
-        id: 4,
-        name: 'Genshin Impact',
-        description: 'Top-up Genesis Crystal Genshin Impact',
-        image: '/images/genshin.jpg',
-        category: 'RPG',
-        popular: true
-      }
-    ];
-    
-    setProducts(mockProducts);
-    setLoading(false);
-  }, []);
-
   return (
     <div className="user-home">
       <Navbar />
