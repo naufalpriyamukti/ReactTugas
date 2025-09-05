@@ -36,7 +36,7 @@ const AdminSidebar = () => {
           <div className="sidebar-logo-icon">
             <GameIcon size={28} />
           </div>
-          <span className="logo-text">GameStore Admin</span>
+          <span className="logo-text">Admin Panel</span>
         </Link>
       </div>
       

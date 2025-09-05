@@ -22,8 +22,7 @@ backend/
 │   ├── config/
 │   │   ├── database.js          # Database connection configuration
 │   │   ├── jwt.js               # JWT configuration
-│   │   ├── midtrans.js          # Midtrans payment gateway config
-│   │   └── email.js             # Email service configuration
+│   │   └── midtrans.js          # Midtrans payment gateway config
 │   │
 │   ├── controllers/
 │   │   ├── authController.js    # Authentication (login, register)
@@ -79,10 +78,6 @@ backend/
 │   ├── products/                # Product images
 │   └── temp/                    # Temporary files
 │
-├── tests/                       # Test files
-│   ├── unit/
-│   ├── integration/
-│   └── e2e/
 │
 ├── docs/                        # API documentation
 │   ├── api.md
@@ -327,10 +322,5 @@ MAX_FILE_SIZE=5242880
 - Document authentication requirements
 - Provide error code explanations
 
-### Testing Strategy
-- **Unit Tests**: Individual function testing
-- **Integration Tests**: API endpoint testing
-- **E2E Tests**: Complete user flow testing
-- **Load Testing**: Performance testing
 
 This backend structure provides a solid foundation for your game top-up platform with proper separation of concerns, security features, and scalability considerations.
